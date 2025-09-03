@@ -195,5 +195,36 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+function startGame() {
+    console.log("Game Started"); // Replace with your actual start game logic
+}
+
+function jump() {
+    console.log("Jumped"); // Replace with your actual jump logic
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const startBtn = document.getElementById("start-btn");
+    const jumpBtn = document.getElementById("jump-btn");
+
+    // Button click listeners (Mobile + Desktop)
+    startBtn?.addEventListener("click", startGame);
+    jumpBtn?.addEventListener("click", jump);
+
+    // Keyboard support (Desktop only)
+    document.addEventListener("keydown", (event) => {
+        // Optional: log the key
+        console.log("Key pressed:", event.key);
+
+        if (event.key === "Enter") {
+            event.preventDefault();
+            startGame();
+        } else if (event.key === "ArrowUp") {
+            event.preventDefault();
+            jump();
+        }
+    });
+});
+
 moveBackground(); // Start moving background
 
