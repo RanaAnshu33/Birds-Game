@@ -1,0 +1,234 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.bird {
+	height: 100px;
+	width: 130px;
+	position: fixed;
+	top: 40vh;
+	left: 30vw;
+	z-index: 100;
+}
+
+.pipe_sprite {
+	position: fixed;
+	top: 40vh;
+	left: 100vw;
+	height: 70vh;
+	width: 6vw;
+	background: radial-gradient(lightgreen 50%, green);
+
+	border: 5px outset #141313fa;
+
+
+}
+
+.message {
+	position: absolute;
+	z-index: 10;
+	color: black;
+	top: 30%;
+	left: 50%;
+	font-size: 4em;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+.messageStyle {
+	background: white;
+	padding: 30px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	border-radius: 5%;
+}
+
+.score {
+	position: fixed;
+	z-index: 10;
+	height: 10vh;
+	font-size: 10vh;
+	font-weight: 100;
+	color: white;
+	-webkit-text-stroke-width: 2px;
+	-webkit-text-stroke-color: rgb(176, 247, 13);
+	top: 0;
+	left: 0;
+	margin: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.score_val {
+	color: gold;
+	font-weight: bold;
+}
+
+/*game*/
+.background {
+	height: 100%;
+	width: 100%;
+	background: url('backgroundimages.png') repeat-x center center fixed;
+	background-size: cover;
+	position: fixed;
+	top: 0;
+	left: 0;
+	animation: moveBackground 10s linear infinite;
+	z-index: -1;
+}
+
+.title {
+	color: red;
+	font-size: 50px;
+}
+
+.title2 {
+	font-size: 50px;
+	color: yellow;
+}
+
+.mobile-controls {
+	position: fixed;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 20;
+	display: none;
+	/* Only show on mobile */
+	gap: 20px;
+}
+
+.mobile-controls button {
+	font-size: 2em;
+	padding: 10px 20px;
+	border-radius: 10px;
+	border: none;
+	background: rgba(0, 0, 0, 0.7);
+	color: white;
+	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+	cursor: pointer;
+}
+
+.mobile-controls button:active {
+	transform: scale(0.95);
+}
+
+/* Hide by default */
+
+.mobile-controls {
+	position: absolute;
+	bottom: 20px;
+	width: 100%;
+	text-align: center;
+	z-index: 1000;
+}
+
+
+@keyframes moveBackground {
+	from {
+		background-position-x: 0;
+	}
+
+	to {
+		background-position-x: -100vw;
+	}
+}
+
+@media only screen and (max-width: 1080px) {
+	.message {
+		font-size: 50px;
+		top: 50%;
+		white-space: nowrap;
+	}
+
+	.score {
+		font-size: 8vh;
+	}
+
+	.bird {
+		width: 120px;
+		height: 90px;
+	}
+
+	.pipe_sprite {
+		width: 14vw;
+	}
+
+	.messageStyle {
+		padding: 25px;
+		width: 100%;
+		font-size: 22px;
+		height: 200px;
+
+		width: 100vw;
+		background: url('textbackground.jpg') no-repeat center center fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+
+	.enter {
+		font-size: 25px;
+		padding-bottom: 25px;
+		color: white;
+	}
+
+	.enter1 {
+		font-size: 22;
+		color: white;
+	}
+
+	#arrow {
+		font-size: 20px;
+	}
+
+	.message {
+		width: 100%;
+		color: white;
+		padding-bottom: 50px;
+	}
+
+	/* Existing styles... */
+
+	.mobile-controls {
+		display: flex;
+		justify-content: center;
+	}
+
+}
+
+@media only screen and (max-width: 780px) {
+	.mobile-controls {
+		display: block !important;
+	}
+
+	.mobile-controls button {
+
+		font-size: 18px;
+		font-weight: bold;
+		color: white;
+		border: none;
+		border-radius: 5px;
+		/*background: #111;*/
+		cursor: pointer;
+
+		transition: 0.3s ease-in-out;
+		box-shadow: 0 0 5px #fff,
+			0 0 10px #ff00ff,
+			0 0 20px #ff00ff,
+			0 0 40px #ff00ff;
+	}
+
+	/* Hover Effect (brighter glow) */
+	.mobile-controls button:hover {
+		background: linear-gradient(45deg, #8e2de2, #4a00e0);
+		box-shadow: 0 0 10px #fff,
+			0 0 20px #ff00ff,
+			0 0 30px #ff00ff,
+			0 0 50px #ff00ff,
+			0 0 70px #ff00ff;
+	}
+}
