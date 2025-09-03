@@ -198,28 +198,59 @@ document.addEventListener("DOMContentLoaded", () => {
 
 */
 document.addEventListener("DOMContentLoaded", () => {
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     const mobileControls = document.querySelector(".mobile-controls");
     const startBtn = document.getElementById("start-btn");
     const jumpBtn = document.getElementById("jump-btn");
 
-    // Show mobile controls if on mobile
-    if (isMobile) {
+    // Detect if device is mobile
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    // Show mobile controls on mobile devices
+    if (isMobile && mobileControls) {
         mobileControls.classList.remove("d-none");
     }
 
-    // Trigger game start on "Enter" button click
-    startBtn?.addEventListener("click", () => {
-        // Simulate "Enter" key press
-        document.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter" }));
-    });
+    // Start game function (replace with your actual logic)
+    function startGame() {
+        console.log("Game started!");
+        // Your game start code here
+    }
 
-    // Trigger bird jump on "Arrow Up" button click
-    jumpBtn?.addEventListener("click", () => {
-        // Simulate "Arrow Up" key press
-        document.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowUp" }));
+    // Bird jump function (replace with your actual logic)
+    function birdJump() {
+        console.log("Bird jumped!");
+        // Your bird jump code here
+    }
+
+    // Start button click triggers game start
+    if (startBtn) {
+        startBtn.addEventListener("click", () => {
+            startGame();
+        });
+    }
+
+    // Jump button click triggers bird jump
+    if (jumpBtn) {
+        jumpBtn.addEventListener("click", () => {
+            birdJump();
+        });
+    }
+
+    // On mobile, touching anywhere on the screen triggers bird jump
+    if (isMobile) {
+        document.body.addEventListener("touchstart", (event) => {
+            event.preventDefault();  // prevent page scroll on touch
+            birdJump();
+        }, { passive: false });
+    }
+
+    // Also listen for keyboard keys (optional)
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") startGame();
+        if (e.key === "ArrowUp") birdJump();
     });
 });
+
 
 
 moveBackground(); // Start moving background
