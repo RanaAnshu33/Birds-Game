@@ -176,7 +176,7 @@ document.querySelectorAll('.mobile-controls button').forEach(btn => {
     }, { passive: false });
 });
 
-
+/*
 //mobile control
 document.addEventListener("DOMContentLoaded", () => {
     const startBtn = document.getElementById("start-btn");
@@ -195,36 +195,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-function startGame() {
-    console.log("Game Started"); // Replace with your actual start game logic
-}
 
-function jump() {
-    console.log("Jumped"); // Replace with your actual jump logic
-}
-
+*/
 document.addEventListener("DOMContentLoaded", () => {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const mobileControls = document.querySelector(".mobile-controls");
     const startBtn = document.getElementById("start-btn");
     const jumpBtn = document.getElementById("jump-btn");
 
-    // Button click listeners (Mobile + Desktop)
-    startBtn?.addEventListener("click", startGame);
-    jumpBtn?.addEventListener("click", jump);
+    // Show mobile controls if on mobile
+    if (isMobile) {
+        mobileControls.classList.remove("d-none");
+    }
 
-    // Keyboard support (Desktop only)
-    document.addEventListener("keydown", (event) => {
-        // Optional: log the key
-        console.log("Key pressed:", event.key);
+    // Trigger game start on "Enter" button click
+    startBtn?.addEventListener("click", () => {
+        // Simulate "Enter" key press
+        document.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter" }));
+    });
 
-        if (event.key === "Enter") {
-            event.preventDefault();
-            startGame();
-        } else if (event.key === "ArrowUp") {
-            event.preventDefault();
-            jump();
-        }
+    // Trigger bird jump on "Arrow Up" button click
+    jumpBtn?.addEventListener("click", () => {
+        // Simulate "Arrow Up" key press
+        document.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowUp" }));
     });
 });
+
 
 moveBackground(); // Start moving background
 
