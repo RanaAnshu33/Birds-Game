@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Flappy Bird </title>
+  <link rel="shortcut icon" href="Bird.png" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <canvas id="gameCanvas"></canvas>
+
+  <!-- HUD -->
+  <div id="hud">
+    <div id="score-box">
+      <span id="score-label">SCORE</span>
+      <span id="score-num">0</span>
+      <span id="best-badge">BEST <span id="best-num">0</span></span>
+    </div>
+  </div>
+
+
+  <div id="overlay">
+    <div id="medal-icon"></div>
+    <div class="game-title" data-text="FLAPPY BIRD">FLAPPY BIRD</div>
+
+    <div id="final-block" class="hidden">
+      <div id="final-score">0</div>
+      <div id="final-label">FINAL SCORE</div>
+    </div>
+    <div class="btn-row">
+      <button class="gbtn gbtn-primary" id="start-btn">&#9654; Play</button>
+    </div>
+    <div class="hint-row">
+      <div class="hint"><kbd>Space</kbd> / <kbd>&uarr;</kbd> to fly</div>
+      <div class="hint"><kbd>Enter</kbd> to start</div>
+    </div>
+  </div>
+
+  
+  <div id="mobile-controls">
+    <button class="mbtn mbtn-start" id="m-start">&#9654; Start</button>
+    <button class="mbtn mbtn-jump" id="m-jump">&#8679; Jump</button>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
